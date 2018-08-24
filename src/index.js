@@ -27,7 +27,6 @@ export class searchVideo {
 
     checkParams(config) {
         if (typeof config.id !== 'string') {
-            alert('DOM need to be string');
             return false;
         }
         if (config.https) {
@@ -35,15 +34,9 @@ export class searchVideo {
             let https = /^https:\/\//;
             config.src.forEach((value, index) => {
                 if (!https.test(value)) {
-                    alert(`No.${index} video's src is not https!`);
                     return false;
                 }
             });
-            // Adjust poster src is https
-            if (!https.test(config.poster)) {
-                alert('Poster src is not https!');
-                return false;
-            }
         }
         return true;
     }
